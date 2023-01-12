@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html>
+    <head>
+        <title>cobauas</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    </head>
+    <body>
+        <div>Data PWS</div>
+        <hr>
+          <script>
+   const url = "http://localhost:8080/cobauas";
+   function post(){
+    let editID = document.getElementById("id").value;
+    let name = document.getElementById("name").value;
+    let nik = document.getElementById("nik").value;
+    let address = document.getElementById("address").value;
+    let photo = document.getElementById("photo").value;
+    let dataText = {"id":editID,"name":name,"nik": nik,"address":address,"photo":photo};
+    let dataJson = JSON.stringify(dataText);
+    $.ajax({
+     url: url,
+     method: 'POST',
+     data: dataJson,
+     contentType: 'application/json',
+     dataType: 'text',
+     success: function(result){
+     document.getElementById("viewer").innerHTML = result;
+     }
+    });
+   }
+   
+   function put(){
+    let editID = document.getElementById("id").value;
+    let name = document.getElementById("name").value;
+    let nik = document.getElementById("nik").value;
+    let address = document.getElementById("address").value;
+    let photo = document.getElementById("photo").value;
+    let dataText = {"id":editID,"name":name,"nik": nik,"address":address,"photo":photo};
+    let dataJson = JSON.stringify(dataText);
+    $.ajax({
+     url: url,
+     method: 'PUT',
+     data: dataJson,
+     contentType: 'application/json',
+     dataType: 'text' ,
+     success: function(result){
+      document.getElementById("viewer").innerHTML = result;
+
+     }
+    });
+   }
+   
+   function get(){
+    $.ajax({
+     url: url,
+     method: 'GET',
+     dataType: 'text',
+     success: function(result){
+     document.getElementById("viewer").innerHTML = result;
+    }
+    });
+   }
+   
+   function deleteID(){
+    let editID = document.getElementById("id").value;
+    let name = document.getElementById("name").value;
+    let nik = document.getElementById("nik").value;
+    let address = document.getElementById("address").value;
+    let photo = document.getElementById("photo").value;
+    let dataText = {"id":editID,"name":name,"nik": nik,"address":address,"photo":photo};
+    let dataJson = JSON.stringify(dataText);
+    $.ajax({
+     url: url,
+     method: 'DELETE',
+     data: dataJson,
+     contentType: 'application/json',
+     dataType: 'text',
+     success: function(result){
+      document.getElementById("viewer").innerHTML = result;
+}
+});
+}
+</script>
+<input type="text" id="id" name="id"> <br>
+<input type="text" id="name" name="name"> <br>
+<input type="text" id="nik" name="nik"> <br>
+<input type="text" id="address" name="address"> <br>
+  <input type="file" id="photo" name="photo"> 
+  <hr>
+  <button onclick="get()">Get The Data from Web Server</button><br>
+  <button onclick="post()">Send The Data to Web Server</button><br>
+  <button onclick="put()">Edit The Data of Web Server</button><br>
+  <button onclick="deleteID()">Delete The Data of Web Server</button>
+  <hr>
+  <div id="viewer"></div>
+ 
+ </body>
+</html>
