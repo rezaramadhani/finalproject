@@ -5,7 +5,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
 -->
 <html>
     <head>
-        <title>cobauas</title>
+        <title>finalproject</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -14,14 +14,14 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
         <div>Data PWS</div>
         <hr>
           <script>
-   const url = "http://localhost:8080/cobauas";
+   const url = "http://localhost:8080/finalproject";
    function post(){
     let editID = document.getElementById("id").value;
     let name = document.getElementById("name").value;
     let nik = document.getElementById("nik").value;
-    let address = document.getElementById("address").value;
+    let adress = document.getElementById("adress").value;
     let photo = document.getElementById("photo").value;
-    let dataText = {"id":editID,"name":name,"nik": nik,"address":address,"photo":photo};
+    let dataText = {"id":editID,"name":name,"nik":nik,"adress":adress,"photo":photo};
     let dataJson = JSON.stringify(dataText);
     $.ajax({
      url: url,
@@ -39,9 +39,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
     let editID = document.getElementById("id").value;
     let name = document.getElementById("name").value;
     let nik = document.getElementById("nik").value;
-    let address = document.getElementById("address").value;
+    let adress = document.getElementById("adress").value;
     let photo = document.getElementById("photo").value;
-    let dataText = {"id":editID,"name":name,"nik": nik,"address":address,"photo":photo};
+    let dataText = {"id":editID,"name":name,"nik":nik,"adress":adress,"photo":photo};
     let dataJson = JSON.stringify(dataText);
     $.ajax({
      url: url,
@@ -71,9 +71,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
     let editID = document.getElementById("id").value;
     let name = document.getElementById("name").value;
     let nik = document.getElementById("nik").value;
-    let address = document.getElementById("address").value;
+    let adress = document.getElementById("adress").value;
     let photo = document.getElementById("photo").value;
-    let dataText = {"id":editID,"name":name,"nik": nik,"address":address,"photo":photo};
+    let dataText = {"id":editID,"name":name,"nik":nik,"adress":adress,"photo":photo};
     let dataJson = JSON.stringify(dataText);
     $.ajax({
      url: url,
@@ -83,15 +83,15 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
      dataType: 'text',
      success: function(result){
       document.getElementById("viewer").innerHTML = result;
-}
-});
-}
+    }
+    });
+   }
 </script>
-<input type="text" id="id" name="id"> <br>
-<input type="text" id="name" name="name"> <br>
-<input type="text" id="nik" name="nik"> <br>
-<input type="text" id="address" name="address"> <br>
-  <input type="file" id="photo" name="photo"> 
+    <input type="text" id="id" name="id"><br>
+    <input type="text" id="name" name="name"> <br>
+    <input type="text" id="nik" name="nik"> <br>
+    <input type="text" id="adress" name="adress"> <br>
+    <input type="file" id="photo" name="photo"> 
   <hr>
   <button onclick="get()">Get The Data from Web Server</button><br>
   <button onclick="post()">Send The Data to Web Server</button><br>
