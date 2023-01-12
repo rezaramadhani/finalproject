@@ -25,6 +25,8 @@ import org.springframework.web.bind.annotation.RestController;
  *
  * @author Reza Ramadhani
  */
+//NIM : 20200140083
+//3digitterakhir : 083
 @RestController
 @CrossOrigin
 @RequestMapping("finalproject")
